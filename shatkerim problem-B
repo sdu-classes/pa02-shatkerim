@@ -1,0 +1,170 @@
+public class Shape {
+    private String color = "red";
+    private boolean filled = true;
+
+    public Shape() {
+
+
+    }
+
+    public Shape(String color, boolean filled) {
+        this.color = color;
+        this.filled = filled;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setFilled(boolean filled) {
+        this.filled = filled;
+    }
+
+    public boolean isFilled() {
+        return filled;
+    }
+
+    public String toString() {
+        return "Shape[color=" + this.color + ",filled=" + this.filled + "]";
+    }
+}
+
+class Circle1 extends Shape {
+    private double radius = 1.0;
+
+    public Circle1() {
+
+    }
+
+    public Circle1(double radius) {
+        this.radius = radius;
+    }
+
+    public Circle1(double radius, String color, boolean filled) {
+        super(color, filled);
+        this.radius = radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public double getArea() {
+        return Math.PI * Math.pow(radius, 2);
+    }
+
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    public String toString() {
+        return "Circle[" + super.toString() + ",radius=" + this.radius + "]";
+    }
+}
+class Rectangle extends Shape{
+    private double width = 1.0;
+    private double length = 1.0;
+    public Rectangle(){
+
+    }
+    public Rectangle(double width,double length){
+        this.length = length;
+        this.width = width;
+    }
+    public Rectangle(double width,double length,String color,boolean filled){
+        super(color, filled);
+        this.width = width;
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+    public double getArea(){
+        return length*width;
+    }
+    public double getPerimeter(){
+        return 2*(length+width);
+    }
+    public String toString(){
+        return "Rectangle["+super.toString()+"] width= "+this.width+", length= "+this.length+"]";
+    }
+}
+class Square extends Rectangle{
+    private double side;
+    public Square(){
+
+    }
+    public Square(double side){
+        this.side = side;
+    }
+    public Square(double side,String color, boolean filled){
+        super(side,side,color,filled);
+        this.side = side;
+    }
+
+    public double getSide() {
+        return side;
+    }
+
+    public void setSide(double side) {
+        this.side = side;
+    }
+    public void setWidth(double side){
+        this.side = side;
+    }
+    public void setLength(double side){
+        this.side = side;
+    }
+    public double getArea(){
+        return Math.pow(side,2);
+    }
+    public String toString(){
+        return "Square[ "+super.toString()+"]";
+    }
+}
+
+ class ShapeTest {
+    public static void main(String[] args) {
+        Circle1 circle = new Circle1(5.5,"red",false);
+        System.out.println(circle);
+        System.out.println(circle.getArea());
+        System.out.println(circle.getPerimeter());
+        System.out.println(circle.getColor());
+        System.out.println(circle.getClass());
+        System.out.println(circle.getRadius());
+
+        Rectangle rectangle = new Rectangle(3.8,2.5,"green",false);
+        System.out.println(rectangle);
+        System.out.println(rectangle.getArea());
+        System.out.println(rectangle.getPerimeter());
+        System.out.println(rectangle.getColor());
+        System.out.println(rectangle.getLength());
+
+        Square square = new Square(6.6);
+        System.out.println(square);
+        System.out.println(square.getArea());
+        System.out.println(square.getColor());
+        System.out.println(square.getSide());
+    }
+}
