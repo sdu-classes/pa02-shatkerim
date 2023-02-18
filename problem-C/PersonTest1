@@ -1,0 +1,57 @@
+class PersonTest {
+    public static void main(String[] args) {
+        Person1 person = new Person1("Iliyas", "42 house");
+        System.out.println(person);
+
+        System.out.println(person.getName());
+
+        System.out.println(person.getAddress());
+
+        System.out.println();
+
+
+        class Student extends Person1 {
+            String program;
+            int year;
+            double fee;
+
+            public Student(String name, String address, String program, int year, double fee) {
+                super(name, address);
+                this.name = name;
+                this.address = address;
+                this.program = program;
+                this.year = year;
+                this.fee = fee;
+            }
+
+            public double getFee() {
+                return fee;
+            }
+
+            public void setFee(double fee) {
+                this.fee = fee;
+            }
+
+            public int getYear() {
+                return year;
+            }
+
+            public void setYear(int year) {
+                this.year = year;
+            }
+
+            public String getProgram() {
+                return program;
+            }
+
+            public void setProgram(String program) {
+                this.program = program;
+            }
+
+            @Override
+            public String toString() {
+                return "Student[Person[name=" + this.name + ",address=" + this.address + "],program=" + this.program + ",year=" + this.year + ",fee=" + this.fee + "]";
+            }
+        }
+    }
+}
