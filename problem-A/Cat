@@ -1,0 +1,13 @@
+class Cat extends Mammal {
+            public Cat(String name) {
+                super(name);
+            }
+
+            public void greats() {
+                System.out.println("MEOW");
+            }
+
+            public String toString() {
+                return "Cat: Cat[" + super.toString() + "]";
+            }
+        }

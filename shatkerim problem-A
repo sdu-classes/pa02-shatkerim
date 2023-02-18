@@ -1,0 +1,80 @@
+package Animal;
+
+        public class Animal {
+            protected String name;
+            public Animal(String name) {
+                this.name = name;
+            }
+            public String toString() {
+                return "Animal: animal[name=" + name + "]";
+            }
+        }
+
+         class Mammal extends Animal{
+            public Mammal(String name) {
+                super(name);
+            }
+            public String toString() {
+                return "Mammal: Mammal[" + super.toString() + "]";
+            }
+        }
+
+         class Cat extends Mammal {
+            public Cat(String name) {
+                super(name);
+            }
+
+            public void greats() {
+                System.out.println("MEOW");
+            }
+
+            public String toString() {
+                return "Cat: Cat[" + super.toString() + "]";
+            }
+        }
+
+        class Dog extends Mammal {
+            public Dog(String name) {
+                super(name);    }
+            public void greats() {
+                System.out.println("WOOF");    }
+            public void greats(Dog another) {
+                System.out.println("WOOOOF");    }
+            public String toString() {
+                return "Dog: Dog[" + super.toString() + "]";
+            }
+        }
+
+         class AnimalTests {
+            public static void main(String[] args) {
+                Dog a1 = new Dog("Rex");
+                System.out.println(a1);
+
+                System.out.print("The dog sounds: ");
+                a1.greats();
+
+                Dog d2 = new Dog("Volt");
+                System.out.println(d2);
+
+                System.out.print("The dog sounds: ");
+                a1.greats(d2);
+
+                Cat c1 = new Cat("Cherni");
+                System.out.println(c1);
+
+                System.out.print("The cat sounds:  ");
+                c1.greats();
+
+                Animal d1 = new Dog("Roi");
+                System.out.println(d1);
+
+                System.out.print("The dog sounds: ");
+                a1.greats();
+
+                Mammal m1 = new Cat("Luka");
+                System.out.println(m1);
+
+                System.out.print("The cat sounds: ");
+                c1.greats();
+            }
+        }
